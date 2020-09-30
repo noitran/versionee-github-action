@@ -1,0 +1,20 @@
+name: Test commit push
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Test Code Push
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: ./
+        id: version
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          prefix: v
+
+      - name: Get output
+        run: echo "Latest git tag is ${{ steps.version.outputs.tag }}"

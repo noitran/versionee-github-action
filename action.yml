@@ -4,6 +4,13 @@ inputs:
   token:
     description: 'Github secret token'
     required: true
+  prefix:
+    description: 'Version prefix. Example: v'
+    required: true
+    default: ''
+  fallback:
+    description: 'The fallback version used if none has been found. Default: v1.0.0'
+    required: false
 outputs:
   tag:
     description: 'Latest repository tag'
